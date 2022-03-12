@@ -70,10 +70,7 @@ body {
 .nav-link {
     text-transform: uppercase;
     position: relative;
-    text-decoration: none;
     color: transparent;
-    height: 100%;
-    display: block;
 }
 
 .list-item:hover .nav-link::after {
@@ -99,4 +96,22 @@ body {
 .list-item:hover .nav-link::before {
     color: pink;
     transform: skewX(30deg) translateX(-0.15em);
+}
+
+@media only screen and (max-width: 600px) {
+    .list-item {
+        font-size: 4rem;
+    }
+    .nav-link {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .list-item {
+        font-size: 3rem;
+    }
+    .nav-link {
+        display: inline;
+    }
 }
