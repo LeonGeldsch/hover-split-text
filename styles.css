@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.list-item {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.list-item::before {
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid yellow;    
+    position: absolute;
+    top: 40%;
+    background-color: black;
+    opacity: 0;
+    right: 100%;
+    transition: all .3s ease-in-out;
+}
+
+.list-item:hover::before {
+    opacity: 1;
+    right: -8%;
+}
+
+.list-item::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: yellow;
+    border-radius: 1px;
+    position: absolute;
+    left: -3%;
+    top: 50%;
+    transition: all .3s ease-in-out;
+}
+
+.list-item:hover::after {
+    width: 106%;
+}
+
+.nav-link {
+    font-size: 10rem;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+    color: transparent;
+    height: 100%;
+}
+
+.list-item:hover .nav-link::after {
+    color: pink;
+    transform: skewX(30deg) translateX(0.15em);
+}
+.nav-link::after {
+    content: attr(data-text);    
+    position: absolute;
+    inset: 0;
+    color: white;
+    clip-path: inset(0 0 50% 0);
+    transition: all 0.3s ease-in-out;
+}
+.nav-link::before {
+    content: attr(data-text);    
+    position: absolute;
+    color: white;
+    clip-path: inset(50% 0 0 0);
+    transition: all 0.3s ease-in-out;
+    inset: 0;
+}
+.list-item:hover .nav-link::before {
+    color: pink;
+    transform: skewX(30deg) translateX(-0.15em);
+}
