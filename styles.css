@@ -42,7 +42,7 @@ body {
 
 .list-item:hover::before {
     opacity: 1;
-    right: -8%;
+    right: calc(-26px - 3%);
 }
 
 .list-item::after {
