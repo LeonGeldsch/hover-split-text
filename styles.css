@@ -23,6 +23,7 @@ body {
     width: fit-content;
     margin: 0 auto;
     cursor: pointer;
+    padding: 0 30px;
 }
 
 .list-item::before {
@@ -36,13 +37,13 @@ body {
     top: 40%;
     background-color: black;
     opacity: 0;
-    right: 100%;
+    right: calc(100% - 30px);
     transition: all .3s ease-in-out;
 }
 
 .list-item:hover::before {
     opacity: 1;
-    right: calc(-26px - 3%);
+    right: -28px;
 }
 
 .list-item::after {
@@ -52,13 +53,17 @@ body {
     background-color: yellow;
     border-radius: 1px;
     position: absolute;
-    left: -3%;
-    top: 50%;
+    left: 0;
+    top: calc(50% - 1px);
     transition: all .3s ease-in-out;
+    pointer-events: none;
 }
 
 .list-item:hover::after {
-    width: 106%;
+    width: 100%;
+}
+.list-item::after:hover {
+    width: 0;
 }
 
 .nav-link {
@@ -68,6 +73,7 @@ body {
     text-decoration: none;
     color: transparent;
     height: 100%;
+    display: block;
 }
 
 .list-item:hover .nav-link::after {
